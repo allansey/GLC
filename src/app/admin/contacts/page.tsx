@@ -79,8 +79,8 @@ export default function ContactsPage() {
 
     return (
         <div>
-            <div className="mb-8">
-                <h1 className="text-3xl font-bold font-heading text-primary mb-2">
+            <div className="mb-6">
+                <h1 className="text-2xl sm:text-3xl font-bold font-heading text-primary mb-2">
                     Contact Submissions
                 </h1>
                 <p className="text-foreground/60">
@@ -130,9 +130,9 @@ export default function ContactsPage() {
                             transition={{ delay: index * 0.05 }}
                             className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow"
                         >
-                            <div className="flex items-start justify-between mb-4">
-                                <div className="flex-1">
-                                    <div className="flex items-center gap-3 mb-2">
+                            <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-4 gap-3">
+                                <div className="flex-1 min-w-0">
+                                    <div className="flex flex-wrap items-center gap-2 mb-2">
                                         <h3 className="text-lg font-semibold text-gray-900">
                                             {contact.name}
                                         </h3>
@@ -144,13 +144,13 @@ export default function ContactsPage() {
                                             {contact.status}
                                         </span>
                                     </div>
-                                    <div className="flex items-center gap-4 text-sm text-gray-600">
-                                        <span className="flex items-center gap-1">
-                                            <Mail className="w-4 h-4" />
-                                            {contact.email}
+                                    <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-sm text-gray-600">
+                                        <span className="flex items-center gap-1 truncate">
+                                            <Mail className="w-4 h-4 flex-shrink-0" />
+                                            <span className="truncate">{contact.email}</span>
                                         </span>
                                         <span className="flex items-center gap-1">
-                                            <Clock className="w-4 h-4" />
+                                            <Clock className="w-4 h-4 flex-shrink-0" />
                                             {new Date(contact.created_at).toLocaleDateString()}
                                         </span>
                                     </div>
@@ -167,11 +167,11 @@ export default function ContactsPage() {
                             </div>
 
                             {/* Action Buttons */}
-                            <div className="flex gap-2">
+                            <div className="flex flex-wrap gap-2">
                                 {contact.status !== "read" && (
                                     <button
                                         onClick={() => updateStatus(contact.id, "read")}
-                                        className="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors text-sm font-medium"
+                                        className="px-3 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors text-sm font-medium"
                                     >
                                         Mark as Read
                                     </button>
@@ -179,20 +179,20 @@ export default function ContactsPage() {
                                 {contact.status !== "replied" && (
                                     <button
                                         onClick={() => updateStatus(contact.id, "replied")}
-                                        className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors text-sm font-medium"
+                                        className="px-3 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors text-sm font-medium"
                                     >
                                         Mark as Replied
                                     </button>
                                 )}
                                 <a
                                     href={`mailto:${contact.email}?subject=Re: ${contact.subject}`}
-                                    className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium"
+                                    className="px-3 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors text-sm font-medium"
                                 >
                                     Reply via Email
                                 </a>
                                 <button
                                     onClick={() => deleteContact(contact.id)}
-                                    className="px-4 py-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors text-sm font-medium flex items-center gap-2 ml-auto"
+                                    className="px-3 py-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors text-sm font-medium flex items-center gap-1 sm:ml-auto"
                                 >
                                     <Trash2 className="w-4 h-4" />
                                     Delete

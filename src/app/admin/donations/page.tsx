@@ -59,7 +59,7 @@ export default function DonationsAdminPage() {
     return (
         <div className="space-y-8">
             <div>
-                <h1 className="text-3xl font-bold font-heading text-primary mb-2">
+                <h1 className="text-2xl sm:text-3xl font-bold font-heading text-primary mb-2">
                     Donations Dashboard
                 </h1>
                 <p className="text-foreground/60">

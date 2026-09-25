@@ -93,9 +93,9 @@ export default function NewsletterPage() {
 
     return (
         <div>
-            <div className="mb-8 flex items-center justify-between">
+            <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold font-heading text-primary mb-2">
+                    <h1 className="text-2xl sm:text-3xl font-bold font-heading text-primary mb-2">
                         Newsletter
                     </h1>
                     <p className="text-foreground/60">
@@ -104,7 +104,7 @@ export default function NewsletterPage() {
                 </div>
                 <button
                     onClick={() => setShowEmailForm(true)}
-                    className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-md font-medium"
+                    className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-md font-medium w-full sm:w-auto"
                 >
                     <Send className="w-5 h-5" />
                     Send Newsletter

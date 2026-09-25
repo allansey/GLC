@@ -65,8 +65,8 @@ export default function PrayerRequestsPage() {
 
     return (
         <div>
-            <div className="mb-8">
-                <h1 className="text-3xl font-bold font-heading text-primary mb-2">
+            <div className="mb-6">
+                <h1 className="text-2xl sm:text-3xl font-bold font-heading text-primary mb-2">
                     Prayer Requests
                 </h1>
                 <p className="text-foreground/60">

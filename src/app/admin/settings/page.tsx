@@ -74,9 +74,9 @@ export default function SettingsPage() {
 
     return (
         <div>
-            <div className="mb-8 flex items-center justify-between">
+            <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold font-heading text-primary mb-2">
+                    <h1 className="text-2xl sm:text-3xl font-bold font-heading text-primary mb-2">
                         Site Settings
                     </h1>
                     <p className="text-foreground/60">
@@ -86,7 +86,7 @@ export default function SettingsPage() {
                 <button
                     onClick={handleBulkSave}
                     disabled={isSaving}
-                    className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium disabled:opacity-50"
+                    className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium disabled:opacity-50 w-full sm:w-auto"
                 >
                     <Save className="w-5 h-5" />
                     Save All Changes
@@ -104,7 +104,7 @@ export default function SettingsPage() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="bg-white rounded-xl shadow-sm border border-primary/10 p-6"
+                        className="bg-white rounded-xl shadow-sm border border-primary/10 p-4 sm:p-6"
                     >
                         <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                             <FileText className="w-5 h-5 text-secondary" />
@@ -147,7 +147,7 @@ export default function SettingsPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="bg-white rounded-xl shadow-sm border border-primary/10 p-6"
+                        className="bg-white rounded-xl shadow-sm border border-primary/10 p-4 sm:p-6"
                     >
                         <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                             <FileText className="w-5 h-5 text-secondary" />
@@ -190,7 +190,7 @@ export default function SettingsPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="bg-white rounded-xl shadow-sm border border-primary/10 p-6"
+                        className="bg-white rounded-xl shadow-sm border border-primary/10 p-4 sm:p-6"
                     >
                         <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                             <MapPin className="w-5 h-5 text-secondary" />
@@ -253,7 +253,7 @@ export default function SettingsPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
-                        className="bg-white rounded-xl shadow-sm border border-primary/10 p-6"
+                        className="bg-white rounded-xl shadow-sm border border-primary/10 p-4 sm:p-6"
                     >
                         <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                             <Globe className="w-5 h-5 text-secondary" />

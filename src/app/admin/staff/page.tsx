@@ -125,9 +125,9 @@ export default function StaffPage() {
 
     return (
         <div>
-            <div className="mb-8 flex items-center justify-between">
+            <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold font-heading text-primary mb-2">
+                    <h1 className="text-2xl sm:text-3xl font-bold font-heading text-primary mb-2">
                         Staff Management
                     </h1>
                     <p className="text-foreground/60">
@@ -136,7 +136,7 @@ export default function StaffPage() {
                 </div>
                 <button
                     onClick={() => setShowForm(!showForm)}
-                    className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
+                    className="flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium w-full sm:w-auto"
                 >
                     <Plus className="w-5 h-5" />
                     Add Staff Member
@@ -147,9 +147,9 @@ export default function StaffPage() {
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8"
+                    className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6 mb-6"
                 >
-                    <h2 className="text-xl font-bold text-gray-900 mb-6">
+                    <h2 className="text-xl font-bold text-gray-900 mb-4 sm:mb-6">
                         {editingStaff ? "Edit Staff Member" : "Add New Staff Member"}
                     </h2>
                     <form onSubmit={handleSubmit} className="space-y-4">
@@ -204,7 +204,7 @@ export default function StaffPage() {
                             />
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">Facebook URL</label>
                                 <input
@@ -234,17 +234,17 @@ export default function StaffPage() {
                             </div>
                         </div>
 
-                        <div className="flex gap-3 pt-4">
+                        <div className="flex flex-wrap gap-3 pt-4">
                             <button
                                 type="submit"
-                                className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
+                                className="flex-1 sm:flex-none px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
                             >
                                 {editingStaff ? "Update Member" : "Add Member"}
                             </button>
                             <button
                                 type="button"
                                 onClick={resetForm}
-                                className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+                                className="flex-1 sm:flex-none px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-medium"
                             >
                                 Cancel
                             </button>

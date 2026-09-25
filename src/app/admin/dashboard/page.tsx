@@ -79,8 +79,8 @@ export default function AdminDashboard() {
 
     return (
         <div>
-            <div className="mb-8">
-                <h1 className="text-3xl font-bold font-heading text-primary mb-2">
+            <div className="mb-6">
+                <h1 className="text-2xl sm:text-3xl font-bold font-heading text-primary mb-2">
                     Dashboard
                 </h1>
                 <p className="text-foreground/60">
@@ -93,7 +93,7 @@ export default function AdminDashboard() {
                     <div className="text-foreground/60">Loading statistics...</div>
                 </div>
             ) : (
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                     {statCards.map((card, index) => {
                         const Icon = card.icon;
                         return (
@@ -102,7 +102,7 @@ export default function AdminDashboard() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
-                                className="bg-white rounded-xl shadow-sm border border-primary/10 p-6 hover:shadow-md transition-all hover:border-primary/20"
+                                className="bg-white rounded-xl shadow-sm border border-primary/10 p-4 sm:p-6 hover:shadow-md transition-all hover:border-primary/20"
                             >
                                 <div className="flex items-center justify-between mb-4">
                                     <div className={`${card.color} p-3 rounded-lg shadow-sm`}>
@@ -125,54 +125,54 @@ export default function AdminDashboard() {
             )}
 
             {/* Quick Actions */}
-            <div className="mt-12">
-                <h2 className="text-xl font-bold font-heading text-primary mb-6">
+            <div className="mt-8 sm:mt-12">
+                <h2 className="text-xl font-bold font-heading text-primary mb-4 sm:mb-6">
                     Quick Actions
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
                     <Link
                         href="/admin/events"
-                        className="bg-white rounded-xl shadow-sm border border-primary/10 p-6 hover:shadow-md transition-all hover:border-primary/20 text-center group"
+                        className="bg-white rounded-xl shadow-sm border border-primary/10 p-4 sm:p-6 hover:shadow-md transition-all hover:border-primary/20 text-center group"
                     >
-                        <div className="w-12 h-12 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/10 transition-colors">
-                            <Calendar className="w-6 h-6 text-primary" />
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:bg-primary/10 transition-colors">
+                            <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                         </div>
-                        <h3 className="font-bold text-gray-900 mb-1">Manage Events</h3>
-                        <p className="text-sm text-gray-500">Create and edit events</p>
+                        <h3 className="font-bold text-gray-900 mb-1 text-sm sm:text-base">Manage Events</h3>
+                        <p className="text-xs sm:text-sm text-gray-500">Create and edit events</p>
                     </Link>
 
                     <Link
                         href="/admin/sermons"
-                        className="bg-white rounded-xl shadow-sm border border-primary/10 p-6 hover:shadow-md transition-all hover:border-primary/20 text-center group"
+                        className="bg-white rounded-xl shadow-sm border border-primary/10 p-4 sm:p-6 hover:shadow-md transition-all hover:border-primary/20 text-center group"
                     >
-                        <div className="w-12 h-12 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/10 transition-colors">
-                            <Video className="w-6 h-6 text-primary" />
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:bg-primary/10 transition-colors">
+                            <Video className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                         </div>
-                        <h3 className="font-bold text-gray-900 mb-1">Manage Sermons</h3>
-                        <p className="text-sm text-gray-500">Upload new sermons</p>
+                        <h3 className="font-bold text-gray-900 mb-1 text-sm sm:text-base">Manage Sermons</h3>
+                        <p className="text-xs sm:text-sm text-gray-500">Upload new sermons</p>
                     </Link>
 
                     <Link
                         href="/admin/contacts"
-                        className="bg-white rounded-xl shadow-sm border border-primary/10 p-6 hover:shadow-md transition-all hover:border-primary/20 text-center group"
+                        className="bg-white rounded-xl shadow-sm border border-primary/10 p-4 sm:p-6 hover:shadow-md transition-all hover:border-primary/20 text-center group"
                     >
-                        <div className="w-12 h-12 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/10 transition-colors">
-                            <Mail className="w-6 h-6 text-primary" />
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:bg-primary/10 transition-colors">
+                            <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                         </div>
-                        <h3 className="font-bold text-gray-900 mb-1">View Contacts</h3>
-                        <p className="text-sm text-gray-500">Review submissions</p>
+                        <h3 className="font-bold text-gray-900 mb-1 text-sm sm:text-base">View Contacts</h3>
+                        <p className="text-xs sm:text-sm text-gray-500">Review submissions</p>
                     </Link>
 
                     <a
                         href="/"
                         target="_blank"
-                        className="bg-white rounded-xl shadow-sm border border-primary/10 p-6 hover:shadow-md transition-all hover:border-primary/20 text-center group"
+                        className="bg-white rounded-xl shadow-sm border border-primary/10 p-4 sm:p-6 hover:shadow-md transition-all hover:border-primary/20 text-center group"
                     >
-                        <div className="w-12 h-12 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/10 transition-colors">
-                            <Users className="w-6 h-6 text-primary" />
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:bg-primary/10 transition-colors">
+                            <Users className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                         </div>
-                        <h3 className="font-bold text-gray-900 mb-1">View Website</h3>
-                        <p className="text-sm text-gray-500">See public site</p>
+                        <h3 className="font-bold text-gray-900 mb-1 text-sm sm:text-base">View Website</h3>
+                        <p className="text-xs sm:text-sm text-gray-500">See public site</p>
                     </a>
                 </div>
             </div>
