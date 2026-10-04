@@ -248,7 +248,7 @@ export default function EventsPage() {
                             />
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
                                     Display Order
@@ -261,7 +261,7 @@ export default function EventsPage() {
                                 />
                             </div>
 
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 sm:pt-7">
                                 <input
                                     type="checkbox"
                                     id="recurring"
@@ -269,12 +269,12 @@ export default function EventsPage() {
                                     onChange={(e) => setFormData({ ...formData, recurring: e.target.checked })}
                                     className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
                                 />
-                                <label htmlFor="recurring" className="text-sm font-medium text-gray-700">
+                                <label htmlFor="recurring" className="text-sm font-medium text-gray-700 cursor-pointer">
                                     Recurring Event
                                 </label>
                             </div>
 
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 sm:pt-7">
                                 <input
                                     type="checkbox"
                                     id="is_active"
@@ -282,7 +282,7 @@ export default function EventsPage() {
                                     onChange={(e) => setFormData({ ...formData, is_active: e.target.checked })}
                                     className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
                                 />
-                                <label htmlFor="is_active" className="text-sm font-medium text-gray-700">
+                                <label htmlFor="is_active" className="text-sm font-medium text-gray-700 cursor-pointer">
                                     Active
                                 </label>
                             </div>
@@ -325,27 +325,27 @@ export default function EventsPage() {
                     </p>
                 </div>
             ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                     {events.map((event, index) => (
                         <motion.div
                             key={event.id}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.05 }}
-                            className="bg-white rounded-xl shadow-sm border border-primary/10 p-6 hover:shadow-md transition-all hover:border-primary/20 group"
+                            className="bg-white rounded-xl shadow-sm border border-primary/10 p-4 sm:p-6 hover:shadow-md transition-all hover:border-primary/20 group"
                         >
-                            <div className="flex items-start justify-between mb-4">
+                            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-4">
                                 <div className="flex-1">
                                     <h3 className="text-lg font-bold text-gray-900 mb-1 font-heading group-hover:text-primary transition-colors">
                                         {event.title}
                                     </h3>
-                                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                                    <div className="flex flex-wrap items-center gap-2 text-sm text-gray-600">
                                         <span className="font-medium">{event.date}</span>
                                         <span className="text-gray-300">•</span>
                                         <span>{event.time}</span>
                                     </div>
                                 </div>
-                                <div className="flex gap-2">
+                                <div className="flex flex-wrap gap-2">
                                     {event.recurring && (
                                         <span className="px-2 py-1 bg-secondary/10 text-secondary-foreground text-xs font-semibold rounded border border-secondary/20">
                                             Recurring

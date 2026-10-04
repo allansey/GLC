@@ -85,7 +85,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
             {/* Mobile menu button */}
             <button
                 onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-primary text-white rounded-lg"
+                className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-primary text-white rounded-lg shadow-md"
             >
                 {isSidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

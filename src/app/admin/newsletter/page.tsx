@@ -111,11 +111,11 @@ export default function NewsletterPage() {
                 </button>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-8">
                 {/* Stats Cards */}
-                <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6 mb-2">
-                    <div className="bg-white p-6 rounded-xl shadow-sm border border-primary/10 flex items-center gap-4">
-                        <div className="p-3 bg-blue-100 text-blue-600 rounded-lg">
+                <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-2">
+                    <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-primary/10 flex items-center gap-4">
+                        <div className="p-3 bg-blue-100 text-blue-600 rounded-lg flex-shrink-0">
                             <Users className="w-6 h-6" />
                         </div>
                         <div>
@@ -123,8 +123,8 @@ export default function NewsletterPage() {
                             <h3 className="text-2xl font-bold text-gray-900">{subscribers.length}</h3>
                         </div>
                     </div>
-                    <div className="bg-white p-6 rounded-xl shadow-sm border border-primary/10 flex items-center gap-4">
-                        <div className="p-3 bg-green-100 text-green-600 rounded-lg">
+                    <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-primary/10 flex items-center gap-4">
+                        <div className="p-3 bg-green-100 text-green-600 rounded-lg flex-shrink-0">
                             <CheckCircle className="w-6 h-6" />
                         </div>
                         <div>
@@ -134,8 +134,8 @@ export default function NewsletterPage() {
                             </h3>
                         </div>
                     </div>
-                    <div className="bg-white p-6 rounded-xl shadow-sm border border-primary/10 flex items-center gap-4">
-                        <div className="p-3 bg-red-100 text-red-600 rounded-lg">
+                    <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-primary/10 flex items-center gap-4">
+                        <div className="p-3 bg-red-100 text-red-600 rounded-lg flex-shrink-0">
                             <XCircle className="w-6 h-6" />
                         </div>
                         <div>
@@ -150,20 +150,20 @@ export default function NewsletterPage() {
                 {/* Send Newsletter Modal */}
                 <AnimatePresence>
                     {showEmailForm && (
-                        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                                className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden"
+                                className="bg-white rounded-t-2xl sm:rounded-2xl shadow-2xl w-full sm:max-w-2xl max-h-[90vh] flex flex-col overflow-hidden"
                             >
-                                <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-primary text-white">
+                                <div className="px-4 sm:px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-primary text-white flex-shrink-0">
                                     <h2 className="text-xl font-bold">New Newsletter Broadcast</h2>
                                     <button onClick={() => setShowEmailForm(false)} className="hover:rotate-90 transition-transform">
                                         <X className="w-6 h-6" />
                                     </button>
                                 </div>
-                                <form onSubmit={handleSendEmail} className="p-6 space-y-4">
+                                <form onSubmit={handleSendEmail} className="p-4 sm:p-6 space-y-4 overflow-y-auto">
                                     <div>
                                         <label className="block text-sm font-semibold text-gray-700 mb-2">Subject Line</label>
                                         <input
@@ -171,7 +171,7 @@ export default function NewsletterPage() {
                                             required
                                             value={emailData.subject}
                                             onChange={(e) => setEmailData({ ...emailData, subject: e.target.value })}
-                                            className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
+                                            className="w-full px-4 py-2.5 sm:py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all text-sm sm:text-base"
                                             placeholder="What's the news?"
                                         />
                                     </div>
@@ -179,28 +179,28 @@ export default function NewsletterPage() {
                                         <label className="block text-sm font-semibold text-gray-700 mb-2">Message Content</label>
                                         <textarea
                                             required
-                                            rows={10}
+                                            rows={6}
                                             value={emailData.content}
                                             onChange={(e) => setEmailData({ ...emailData, content: e.target.value })}
-                                            className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all font-sans"
+                                            className="w-full px-4 py-2.5 sm:py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all font-sans text-sm sm:text-base"
                                             placeholder="Start writing your update here... Newlines will be converted to paragraphs."
                                         />
                                     </div>
-                                    <div className="flex gap-3 pt-4">
-                                        <button
-                                            type="submit"
-                                            disabled={sending}
-                                            className="flex-1 bg-secondary text-white py-3 rounded-xl font-bold text-lg hover:bg-secondary/90 transition-all disabled:opacity-50 shadow-lg flex items-center justify-center gap-2"
-                                        >
-                                            <Send className="w-5 h-5" />
-                                            {sending ? "Sending Broadcast..." : "Send to All Active Subscribers"}
-                                        </button>
+                                    <div className="flex flex-col-reverse sm:flex-row gap-3 pt-3 sm:pt-4">
                                         <button
                                             type="button"
                                             onClick={() => setShowEmailForm(false)}
-                                            className="px-6 py-3 bg-gray-100 text-gray-600 rounded-xl font-medium hover:bg-gray-200 transition-all"
+                                            className="w-full sm:w-auto px-6 py-2.5 sm:py-3 bg-gray-100 text-gray-600 rounded-xl font-medium hover:bg-gray-200 transition-all text-center"
                                         >
                                             Cancel
+                                        </button>
+                                        <button
+                                            type="submit"
+                                            disabled={sending}
+                                            className="flex-1 bg-secondary text-white py-2.5 sm:py-3 rounded-xl font-bold text-base sm:text-lg hover:bg-secondary/90 transition-all disabled:opacity-50 shadow-lg flex items-center justify-center gap-2"
+                                        >
+                                            <Send className="w-5 h-5" />
+                                            {sending ? "Sending Broadcast..." : "Send to All Active Subscribers"}
                                         </button>
                                     </div>
                                 </form>

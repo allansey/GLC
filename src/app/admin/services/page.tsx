@@ -119,19 +119,19 @@ export default function ServicesAdminPage() {
                     <p className="text-foreground/60">Loading services...</p>
                 </div>
             ) : (
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {services.map((service) => (
                         <motion.div
                             key={service.id}
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            className="bg-white rounded-2xl shadow-sm border border-primary/10 p-6 relative group"
+                            className="bg-white rounded-2xl shadow-sm border border-primary/10 p-4 sm:p-6 relative group"
                         >
                             <div className="flex justify-between items-start mb-4">
                                 <div className="p-3 bg-secondary/10 text-secondary rounded-xl">
                                     <Clock className="w-6 h-6" />
                                 </div>
-                                <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div className="flex gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                                     <button
                                         onClick={() => {
                                             setEditingService(service);
@@ -159,20 +159,20 @@ export default function ServicesAdminPage() {
 
             <AnimatePresence>
                 {showModal && (
-                    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+                    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.95 }}
-                            className="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden"
+                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                            className="bg-white rounded-t-2xl sm:rounded-2xl shadow-2xl w-full sm:max-w-lg max-h-[90vh] flex flex-col overflow-hidden"
                         >
-                            <div className="px-6 py-4 border-b border-gray-100 bg-primary text-white flex justify-between items-center">
+                            <div className="px-4 sm:px-6 py-4 border-b border-gray-100 bg-primary text-white flex justify-between items-center flex-shrink-0">
                                 <h2 className="text-xl font-bold">{editingService?.id ? "Edit Service" : "Add Service"}</h2>
                                 <button onClick={() => setShowModal(false)} className="hover:rotate-90 transition-transform">
                                     <X className="w-6 h-6" />
                                 </button>
                             </div>
-                            <form onSubmit={handleSave} className="p-6 space-y-4">
+                            <form onSubmit={handleSave} className="p-4 sm:p-6 space-y-4 overflow-y-auto">
                                 <div>
                                     <label className="block text-sm font-semibold text-gray-700 mb-1">Service Name</label>
                                     <input
@@ -224,7 +224,7 @@ export default function ServicesAdminPage() {
                                         </div>
                                     )}
                                 </div>
-                                <div className="grid grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label className="block text-sm font-semibold text-gray-700 mb-1">Display Order</label>
                                         <input
@@ -234,7 +234,7 @@ export default function ServicesAdminPage() {
                                             className="w-full px-4 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
                                         />
                                     </div>
-                                    <div className="flex items-center pt-6 gap-2">
+                                    <div className="flex items-center pt-2 sm:pt-6 gap-2">
                                         <input
                                             type="checkbox"
                                             id="is_active"
@@ -245,20 +245,20 @@ export default function ServicesAdminPage() {
                                         <label htmlFor="is_active" className="text-sm font-semibold text-gray-700">Is Active</label>
                                     </div>
                                 </div>
-                                <div className="flex gap-3 pt-4">
-                                    <button
-                                        type="submit"
-                                        disabled={isSaving}
-                                        className="flex-1 bg-secondary text-white py-3 rounded-xl font-bold hover:bg-secondary/90 transition-all disabled:opacity-50"
-                                    >
-                                        {isSaving ? "Saving..." : "Save Service"}
-                                    </button>
+                                <div className="flex flex-col-reverse sm:flex-row gap-3 pt-3 sm:pt-4">
                                     <button
                                         type="button"
                                         onClick={() => setShowModal(false)}
-                                        className="px-6 py-3 bg-gray-100 text-gray-600 rounded-xl font-medium hover:bg-gray-200 transition-all"
+                                        className="w-full sm:w-auto px-6 py-2.5 sm:py-3 bg-gray-100 text-gray-600 rounded-xl font-medium hover:bg-gray-200 transition-all text-center"
                                     >
                                         Cancel
+                                    </button>
+                                    <button
+                                        type="submit"
+                                        disabled={isSaving}
+                                        className="flex-1 bg-secondary text-white py-2.5 sm:py-3 rounded-xl font-bold hover:bg-secondary/90 transition-all disabled:opacity-50"
+                                    >
+                                        {isSaving ? "Saving..." : "Save Service"}
                                     </button>
                                 </div>
                             </form>

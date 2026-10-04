@@ -258,7 +258,7 @@ export default function StaffPage() {
                     <div className="text-foreground/60">Loading staff members...</div>
                 </div>
             ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {staff.map((member) => (
                         <div key={member.id} className="bg-white rounded-xl shadow-sm border border-primary/10 overflow-hidden hover:shadow-md transition-all">
                             <div className="aspect-square bg-gray-100 relative">
@@ -268,7 +268,7 @@ export default function StaffPage() {
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            <div className="p-6">
+                            <div className="p-4 sm:p-6">
                                 <h3 className="font-bold text-gray-900 mb-1">{member.name}</h3>
                                 <p className="text-sm text-secondary font-medium mb-4">{member.role}</p>
                                 <div className="flex gap-2 mb-4">

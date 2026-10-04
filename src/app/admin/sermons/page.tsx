@@ -383,7 +383,7 @@ export default function SermonsPage() {
                     </p>
                 </div>
             ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {sermons.map((sermon, index) => (
                         <motion.div
                             key={sermon.id}
@@ -403,7 +403,7 @@ export default function SermonsPage() {
                                 </div>
                             )}
 
-                            <div className="p-6">
+                            <div className="p-4 sm:p-6">
                                 <div className="flex items-start justify-between mb-3">
                                     <div className="flex-1">
                                         <h3 className="font-bold text-gray-900 mb-1 line-clamp-2 font-heading group-hover:text-primary transition-colors">
@@ -430,7 +430,7 @@ export default function SermonsPage() {
                                     </p>
                                 )}
 
-                                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                                <div className="flex flex-wrap items-center justify-between gap-2 pt-4 border-t border-gray-100">
                                     <div className="flex gap-1">
                                         <span className={`px-2 py-1 text-xs font-semibold rounded border ${sermon.is_published
                                             ? "bg-green-50 text-green-700 border-green-200"

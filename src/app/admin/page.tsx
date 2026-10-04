@@ -53,7 +53,7 @@ export default function AdminLoginPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="w-full max-w-md"
             >
-                <div className="bg-white rounded-2xl shadow-xl p-8 border border-primary/10">
+                <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border border-primary/10">
                     <div className="text-center mb-8">
                         <h1 className="text-3xl font-bold font-heading text-primary mb-2">
                             Admin Login

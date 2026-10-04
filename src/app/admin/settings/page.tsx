@@ -99,18 +99,18 @@ export default function SettingsPage() {
                     <div className="text-foreground/60">Loading settings...</div>
                 </div>
             ) : (
-                <div className="space-y-8">
+                <div className="space-y-6 sm:space-y-8">
                     {/* Welcome Section */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="bg-white rounded-xl shadow-sm border border-primary/10 p-4 sm:p-6"
                     >
-                        <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-gray-900 mb-4 sm:mb-6 flex items-center gap-2">
                             <FileText className="w-5 h-5 text-secondary" />
                             Welcome Section
                         </h2>
-                        <div className="space-y-6">
+                        <div className="space-y-4 sm:space-y-6">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
                                     Welcome Heading
@@ -149,11 +149,11 @@ export default function SettingsPage() {
                         transition={{ delay: 0.1 }}
                         className="bg-white rounded-xl shadow-sm border border-primary/10 p-4 sm:p-6"
                     >
-                        <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-gray-900 mb-4 sm:mb-6 flex items-center gap-2">
                             <FileText className="w-5 h-5 text-secondary" />
                             Mission & Vision
                         </h2>
-                        <div className="space-y-6">
+                        <div className="space-y-4 sm:space-y-6">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
                                     Our Mission
@@ -192,11 +192,11 @@ export default function SettingsPage() {
                         transition={{ delay: 0.2 }}
                         className="bg-white rounded-xl shadow-sm border border-primary/10 p-4 sm:p-6"
                     >
-                        <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-gray-900 mb-4 sm:mb-6 flex items-center gap-2">
                             <MapPin className="w-5 h-5 text-secondary" />
                             Church Contact Information
                         </h2>
-                        <div className="grid md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">Church Address</label>
                                 <input
@@ -259,7 +259,7 @@ export default function SettingsPage() {
                             <Globe className="w-5 h-5 text-secondary" />
                             Social Media Links
                         </h2>
-                        <div className="grid md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">Facebook URL</label>
                                 <input
