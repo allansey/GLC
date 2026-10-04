@@ -74,9 +74,9 @@ export default function PrayerRequestsPage() {
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-primary/10 flex items-center gap-4">
-                    <div className="p-3 bg-blue-100 text-blue-600 rounded-lg">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-6">
+                <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-primary/10 flex items-center gap-4">
+                    <div className="p-3 bg-blue-100 text-blue-600 rounded-lg flex-shrink-0">
                         <Heart className="w-6 h-6" />
                     </div>
                     <div>
@@ -84,8 +84,8 @@ export default function PrayerRequestsPage() {
                         <h3 className="text-2xl font-bold text-gray-900">{requests.length}</h3>
                     </div>
                 </div>
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-primary/10 flex items-center gap-4">
-                    <div className="p-3 bg-yellow-100 text-yellow-600 rounded-lg">
+                <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-primary/10 flex items-center gap-4">
+                    <div className="p-3 bg-yellow-100 text-yellow-600 rounded-lg flex-shrink-0">
                         <Eye className="w-6 h-6" />
                     </div>
                     <div>
@@ -95,8 +95,8 @@ export default function PrayerRequestsPage() {
                         </h3>
                     </div>
                 </div>
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-primary/10 flex items-center gap-4">
-                    <div className="p-3 bg-green-100 text-green-600 rounded-lg">
+                <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-primary/10 flex items-center gap-4">
+                    <div className="p-3 bg-green-100 text-green-600 rounded-lg flex-shrink-0">
                         <CheckCircle className="w-6 h-6" />
                     </div>
                     <div>
@@ -120,14 +120,14 @@ export default function PrayerRequestsPage() {
                     </h3>
                 </div>
             ) : (
-                <div className="grid gap-6">
+                <div className="grid gap-4 sm:gap-6">
                     {requests.map((request, index) => (
                         <motion.div
                             key={request.id}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.05 }}
-                            className="bg-white rounded-xl shadow-sm border border-primary/10 p-6"
+                            className="bg-white rounded-xl shadow-sm border border-primary/10 p-4 sm:p-6"
                         >
                             <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
                                 <div className="flex-1">

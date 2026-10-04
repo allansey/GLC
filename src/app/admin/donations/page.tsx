@@ -68,34 +68,34 @@ export default function DonationsAdminPage() {
             </div>
 
             {/* Metrics */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 flex items-center gap-4">
-                    <div className="p-4 bg-green-100 text-green-700 rounded-full">
-                        <Banknote className="w-8 h-8" />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+                <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6 flex items-center gap-4">
+                    <div className="p-3 sm:p-4 bg-green-100 text-green-700 rounded-full flex-shrink-0">
+                        <Banknote className="w-6 h-6 sm:w-8 sm:h-8" />
                     </div>
                     <div>
                         <p className="text-sm text-gray-500 font-medium">Total Received (All Time)</p>
-                        <h2 className="text-3xl font-bold text-gray-900">₵{totalGiven.toFixed(2)}</h2>
+                        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">₵{totalGiven.toFixed(2)}</h2>
                     </div>
                 </div>
 
-                <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 flex items-center gap-4">
-                    <div className="p-4 bg-blue-100 text-blue-700 rounded-full">
-                        <Calendar className="w-8 h-8" />
+                <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6 flex items-center gap-4">
+                    <div className="p-3 sm:p-4 bg-blue-100 text-blue-700 rounded-full flex-shrink-0">
+                        <Calendar className="w-6 h-6 sm:w-8 sm:h-8" />
                     </div>
                     <div>
                         <p className="text-sm text-gray-500 font-medium">This Month</p>
-                        <h2 className="text-3xl font-bold text-gray-900">₵{totalThisMonth.toFixed(2)}</h2>
+                        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">₵{totalThisMonth.toFixed(2)}</h2>
                     </div>
                 </div>
 
-                <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 flex items-center gap-4">
-                    <div className="p-4 bg-purple-100 text-purple-700 rounded-full">
-                        <Gift className="w-8 h-8" />
+                <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6 flex items-center gap-4">
+                    <div className="p-3 sm:p-4 bg-purple-100 text-purple-700 rounded-full flex-shrink-0">
+                        <Gift className="w-6 h-6 sm:w-8 sm:h-8" />
                     </div>
                     <div>
                         <p className="text-sm text-gray-500 font-medium">Total Transactions</p>
-                        <h2 className="text-3xl font-bold text-gray-900">{donations.length}</h2>
+                        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{donations.length}</h2>
                     </div>
                 </div>
             </div>
