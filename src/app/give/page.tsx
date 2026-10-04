@@ -198,16 +198,17 @@ export default function GivePage() {
                                 <div className="space-y-4">
                                     <div>
                                         <p className="text-emerald-200/70 text-xs uppercase tracking-wider mb-1">Bank Name</p>
-                                        <p className="text-xl font-semibold">Ecobank Ghana</p>
+                                        <p className="text-xl font-semibold">N/A</p>
                                     </div>
                                     <div>
                                         <p className="text-emerald-200/70 text-xs uppercase tracking-wider mb-1">Account Name</p>
-                                        <p className="text-xl font-semibold">Gracelove Chapel</p>
+                                        <p className="text-xl font-semibold">GRACELOVE EVANGELISTIC MINISTRIES</p>
                                     </div>
                                     <div>
                                         <p className="text-emerald-200/70 text-xs uppercase tracking-wider mb-1">Account Number</p>
                                         <div className="flex items-center gap-3">
-                                            <p className="text-2xl font-bold font-mono tracking-wider text-secondary">{bankAccountNumber}</p>
+                                            {/* <p className="text-2xl font-bold font-mono tracking-wider text-secondary">{bankAccountNumber}</p> */}
+                                            <p className="text-2xl font-bold font-mono tracking-wider text-secondary">N/A</p>
                                             <button
                                                 type="button"
                                                 onClick={handleCopyBank}
@@ -241,8 +242,9 @@ export default function GivePage() {
                                 <div className="p-4 rounded-xl bg-amber-50/70 border border-amber-200/60 flex items-center justify-between gap-4">
                                     <div>
                                         <p className="text-xs uppercase tracking-wider font-semibold text-amber-900">Direct MoMo Transfer</p>
-                                        <p className="text-lg font-bold text-gray-900 font-mono mt-0.5">{momoNumber}</p>
-                                        <p className="text-xs text-gray-600">Account Name: Gracelove Chapel</p>
+                                        {/* <p className="text-lg font-bold text-gray-900 font-mono mt-0.5">{momoNumber}</p> */}
+                                        <p className="text-lg font-bold text-gray-900 font-mono mt-0.5">0541052273</p>
+                                        <p className="text-xs text-gray-600">Account Name: GRACELOVE EVANGELISTIC MINISTRIES</p>
                                     </div>
                                     <button
                                         type="button"
