@@ -1,0 +1,18 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    # Runs at 12:00 UTC every 3 days
+    - cron: '0 12 */3 * *'
+  workflow_dispatch: # Allows manual run anytime from the GitHub Actions tab
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Health Endpoint
+        run: |
+          echo "Pinging Gracelove Chapel health check endpoint to keep Supabase active..."
+          # Replace with your deployed URL or ping Supabase directly
+          STATUS_CODE=$(curl -s -o /dev/null -w "%{http_code}" "https://glc-church.vercel.app/api/health" || true)
+          echo "Received HTTP status: $STATUS_CODE"
