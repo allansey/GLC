@@ -12,6 +12,7 @@ interface Service {
     time: string;
     description: string;
     image_url?: string;
+    branch?: string;
     display_order: number;
     is_active: boolean;
 }
@@ -149,6 +150,11 @@ export default function ServicesAdminPage() {
                                     </button>
                                 </div>
                             </div>
+                            {service.branch && (
+                                <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-secondary/15 text-secondary border border-secondary/25 mb-2">
+                                    {service.branch}
+                                </span>
+                            )}
                             <h3 className="text-xl font-bold font-heading text-primary mb-1">{service.name}</h3>
                             <p className="text-secondary font-bold text-sm mb-3">{service.time}</p>
                             <p className="text-foreground/60 text-sm line-clamp-2">{service.description}</p>
@@ -174,13 +180,25 @@ export default function ServicesAdminPage() {
                             </div>
                             <form onSubmit={handleSave} className="p-4 sm:p-6 space-y-4 overflow-y-auto">
                                 <div>
+                                    <label className="block text-sm font-semibold text-gray-700 mb-1">Branch</label>
+                                    <select
+                                        value={editingService?.branch || "Main Campus (Ayeduase)"}
+                                        onChange={(e) => setEditingService({ ...editingService, branch: e.target.value })}
+                                        className="w-full px-4 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all bg-white text-sm"
+                                    >
+                                        <option value="Main Campus (Ayeduase)">Main Campus (Ayeduase - KNUST)</option>
+                                        <option value="City Campus">City Campus (Central Branch)</option>
+                                        <option value="All Branches">Both Branches</option>
+                                    </select>
+                                </div>
+                                <div>
                                     <label className="block text-sm font-semibold text-gray-700 mb-1">Service Name</label>
                                     <input
                                         type="text"
                                         required
                                         value={editingService?.name || ""}
                                         onChange={(e) => setEditingService({ ...editingService, name: e.target.value })}
-                                        className="w-full px-4 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
+                                        className="w-full px-4 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all text-sm"
                                         placeholder="e.g., Sunday Worship"
                                     />
                                 </div>
@@ -191,7 +209,7 @@ export default function ServicesAdminPage() {
                                         required
                                         value={editingService?.time || ""}
                                         onChange={(e) => setEditingService({ ...editingService, time: e.target.value })}
-                                        className="w-full px-4 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
+                                        className="w-full px-4 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all text-sm"
                                         placeholder="e.g., 9:00 AM - 11:30 AM"
                                     />
                                 </div>

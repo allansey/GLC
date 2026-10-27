@@ -47,6 +47,41 @@ export default function VisitPage() {
         fetchVisitData();
     }, []);
 
+    const branches = [
+        {
+            id: "main",
+            name: "Main Campus (Ayeduase - KNUST)",
+            tag: "Headquarters",
+            address: settings.church_address || "Ayeduase Gate, Near KNUST, Kumasi, Ghana",
+            phone: settings.church_phone || "+233 (0) 24 000 0000",
+            email: settings.church_email || "info@gracelovechapel.com",
+            mapEmbed: "https://maps.google.com/maps?q=Ayeduase%20Gate%2C%20KNUST%2C%20Kumasi%2C%20Ghana&t=&z=15&ie=UTF8&iwloc=&output=embed",
+            services: [
+                { name: "Sunday Celebration Service", time: "9:00 AM - 11:30 AM", desc: "Main Sunday worship & preaching" },
+                { name: "Midweek Grace Encounter", time: "Wednesdays at 6:30 PM", desc: "Interactive Bible study & prayer" },
+                { name: "Prophetic & Healing Service", time: "Fridays at 7:00 PM", desc: "Intensive deliverance & prayer" },
+            ]
+        },
+        {
+            id: "city",
+            name: "City Campus (Central Branch)",
+            tag: "City Branch",
+            address: "Kumasi City Center (Commercial Hub), Kumasi, Ghana",
+            phone: "+233 (0) 24 000 0001",
+            email: "city@gracelovechapel.com",
+            mapEmbed: "https://maps.google.com/maps?q=Kumasi%2C%20Ghana&t=&z=14&ie=UTF8&iwloc=&output=embed",
+            services: [
+                { name: "Sunday Divine Encounter", time: "8:30 AM - 10:30 AM", desc: "Sunday morning spiritual uplift" },
+                { name: "Midweek Word Feast", time: "Thursdays at 6:30 PM", desc: "Faith-building exposition" },
+                { name: "Hour of Deliverance & Miracles", time: "Fridays at 6:30 PM", desc: "Evening of breakthrough & signs" },
+            ]
+        }
+    ];
+
+    const [selectedBranch, setSelectedBranch] = useState<string>("main");
+
+    const currentBranch = branches.find(b => b.id === selectedBranch) || branches[0];
+
     return (
         <div className="flex flex-col">
             {/* Header */}
@@ -59,7 +94,7 @@ export default function VisitPage() {
                     >
                         <h1 className="mb-4 text-4xl font-bold font-heading md:text-5xl">Plan a Visit</h1>
                         <p className="mx-auto max-w-2xl text-lg opacity-90">
-                            We can't wait to welcome you to Gracelove Chapel. Here's everything you need to know.
+                            We can&apos;t wait to welcome you to Gracelove Chapel across our two branches. Here&apos;s everything you need to know.
                         </p>
                     </motion.div>
                 </div>
@@ -68,45 +103,75 @@ export default function VisitPage() {
             {/* Service Times & Location */}
             <section className="py-20 bg-background">
                 <div className="container mx-auto px-4 md:px-6">
+                    {/* Branch Switcher Tabs */}
+                    <div className="flex justify-center mb-12">
+                        <div className="inline-flex p-1.5 bg-light rounded-2xl border border-primary/10 shadow-sm max-w-full overflow-x-auto">
+                            {branches.map((b) => (
+                                <button
+                                    key={b.id}
+                                    onClick={() => setSelectedBranch(b.id)}
+                                    className={`px-5 py-2.5 rounded-xl text-sm sm:text-base font-bold transition-all whitespace-nowrap ${
+                                        selectedBranch === b.id
+                                            ? "bg-primary text-white shadow-md"
+                                            : "text-foreground/70 hover:text-primary hover:bg-white/50"
+                                    }`}
+                                >
+                                    {b.name}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
                     <div className="grid gap-12 lg:grid-cols-2">
                         <motion.div
+                            key={currentBranch.id}
                             initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.4 }}
                             className="space-y-8"
                         >
                             <div>
-                                <h2 className="text-3xl font-bold font-heading text-primary mb-6 flex items-center gap-3">
-                                    <Clock className="w-8 h-8 text-secondary" />
-                                    Service Times
-                                </h2>
-                                <div className="space-y-4">
-                                    {services.map((service) => (
-                                        <div key={service.id} className="flex justify-between items-center p-4 bg-light rounded-xl border border-primary/5 shadow-sm">
-                                            <span className="font-bold text-lg text-primary">{service.name}</span>
-                                            <span className="text-secondary font-semibold">{service.time}</span>
+                                <div className="flex items-center justify-between mb-4">
+                                    <h2 className="text-2xl sm:text-3xl font-bold font-heading text-primary flex items-center gap-3">
+                                        <Clock className="w-7 h-7 text-secondary" />
+                                        Service Times
+                                    </h2>
+                                    <span className="px-3 py-1 text-xs font-bold bg-secondary/15 text-secondary border border-secondary/25 rounded-full uppercase tracking-wider">
+                                        {currentBranch.tag}
+                                    </span>
+                                </div>
+                                <div className="space-y-3.5">
+                                    {currentBranch.services.map((service, idx) => (
+                                        <div key={idx} className="p-4 bg-light rounded-2xl border border-primary/5 shadow-sm">
+                                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+                                                <span className="font-bold text-base sm:text-lg text-primary">{service.name}</span>
+                                                <span className="text-secondary font-bold text-xs sm:text-sm px-2.5 py-0.5 rounded-full bg-secondary/10 w-max">
+                                                    {service.time}
+                                                </span>
+                                            </div>
+                                            <p className="text-xs sm:text-sm text-foreground/70">{service.desc}</p>
                                         </div>
                                     ))}
                                 </div>
                             </div>
 
                             <div>
-                                <h2 className="text-3xl font-bold font-heading text-primary mb-6 flex items-center gap-3">
-                                    <MapPin className="w-8 h-8 text-secondary" />
-                                    Location
+                                <h2 className="text-2xl sm:text-3xl font-bold font-heading text-primary mb-4 flex items-center gap-3">
+                                    <MapPin className="w-7 h-7 text-secondary" />
+                                    Location &amp; Directions
                                 </h2>
-                                <p className="text-lg text-foreground/80 mb-4">
-                                    {settings.church_address}
+                                <p className="text-base sm:text-lg text-foreground/80 mb-4 font-medium flex items-center gap-2">
+                                    <MapPin className="w-5 h-5 text-secondary flex-shrink-0" />
+                                    {currentBranch.address}
                                 </p>
                                 <div className="aspect-video w-full rounded-2xl overflow-hidden relative shadow-md border border-primary/10 bg-accent/10">
-                                    {/* Google Maps Embed */}
                                     <iframe 
-                                        src="https://maps.google.com/maps?q=Ayeduase%20Gate%2C%20KNUST%2C%20Kumasi%2C%20Ghana&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                                        src={currentBranch.mapEmbed} 
                                         className="w-full h-full border-0" 
                                         allowFullScreen 
                                         loading="lazy" 
                                         referrerPolicy="no-referrer-when-downgrade"
-                                        title="Gracelove Chapel Location Map"
+                                        title={`${currentBranch.name} Location Map`}
                                     />
                                 </div>
                             </div>

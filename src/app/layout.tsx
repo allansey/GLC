@@ -17,6 +17,10 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://gracelovechapel.com")
+  ),
   title: {
     template: "%s | Gracelove Chapel",
     default: "Gracelove Chapel | A Place of Grace and Love",
